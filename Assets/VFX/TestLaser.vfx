@@ -1472,7 +1472,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.092
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: _DistortionAmount
@@ -1671,13 +1671,11 @@ MonoBehaviour:
       slotIndex: 0
   m_OutputFlowSlot:
   - link:
-    - context: {fileID: 8926484042661614972}
-      slotIndex: 0
     - context: {fileID: 8926484042661615107}
       slotIndex: 0
-    - context: {fileID: 8926484042661615176}
+    - context: {fileID: 8926484042661614972}
       slotIndex: 0
-    - context: {fileID: 8926484042661615218}
+    - context: {fileID: 8926484042661615176}
       slotIndex: 0
   integration: 0
   angularIntegration: 0
@@ -3474,10 +3472,9 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 8926484042661615090}
   - {fileID: 8926484042661615088}
-  - {fileID: 8926484042661614972}
   - {fileID: 8926484042661615107}
+  - {fileID: 8926484042661614972}
   - {fileID: 8926484042661615176}
-  - {fileID: 8926484042661615218}
   dataType: 0
   capacity: 32
   stripCapacity: 1
@@ -4868,11 +4865,9 @@ MonoBehaviour:
   - {fileID: 8926484042661615239}
   m_OutputSlots: []
   m_Label: BEAM LIGHTNING
-  m_Data: {fileID: 8926484042661615151}
+  m_Data: {fileID: 0}
   m_InputFlowSlot:
-  - link:
-    - context: {fileID: 8926484042661615088}
-      slotIndex: 0
+  - link: []
   m_OutputFlowSlot:
   - link: []
   blendMode: 0

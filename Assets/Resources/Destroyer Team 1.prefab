@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404865770744611162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.707609, y: 7.766363, z: -17.336538}
+  m_LocalPosition: {x: -0.1, y: 0.58, z: 2.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -284,8 +284,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4773804419002900302}
   - {fileID: 3289075775580043983}
-  - {fileID: 1628348030023206787}
-  - {fileID: 2557750554368814942}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -382,7 +380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2474610024382958301}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5487214637022434996
 MeshFilter:
@@ -5198,7 +5196,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c99161975ad10f42aabaec54eafb1f6, type: 2}
+  - {fileID: 2100000, guid: 1f6fa1234ae2ded45b5ff97b765ebd7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5350,6 +5348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6658379878885878719}
   - {fileID: 7526569931970083932}
   - {fileID: 5773821189869942076}
   - {fileID: 1470787580183535793}
@@ -5420,7 +5419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PositionModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 2
@@ -5471,7 +5470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2474610024382958301}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1108577759879748592
 MeshFilter:
@@ -5554,7 +5553,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2474610024382958301}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8346841274688105160
 MeshFilter:
@@ -5637,7 +5636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2474610024382958301}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3833226185221605082
 MeshFilter:
@@ -5713,7 +5712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4562386610281999309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.041443, y: 1.3600006, z: -5.9042587}
+  m_LocalPosition: {x: -14.3, y: 1.3600006, z: -5.9042587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5898,6 +5897,37 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!1 &5871795274047702855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6658379878885878719}
+  m_Layer: 0
+  m_Name: IsAimedRayOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6658379878885878719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871795274047702855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.064, y: 3.65, z: -1.187}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2474610024382958301}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6369819095580491118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5945,6 +5975,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBase: {fileID: 6902035897456152421}
   turretRotors: {fileID: 6902035897815373861}
+  isAimedRayOrigin: {fileID: 6658379878885878719}
+  drawDebugArcs: 0
+  maxY: 0
+  maxX: 0
   shipCam: {fileID: 824985469055589222}
 --- !u!114 &6143693620800954886
 MonoBehaviour:
@@ -5975,6 +6009,7 @@ MonoBehaviour:
   allowInvoke: 1
   muzzleFlash: {fileID: 0}
   ammunitionDisplay: {fileID: 0}
+  isAimedCheckValue: {x: 0, y: 0, z: 0}
 --- !u!1 &6902035897456152420
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +6388,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7482075345005235395}
     m_Modifications:
+    - target: {fileID: 4561475101476881313, guid: 2610c9a9b150b3e43ba67ae120b13167, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f6fa1234ae2ded45b5ff97b765ebd7f, type: 2}
     - target: {fileID: 4561475101476881315, guid: 2610c9a9b150b3e43ba67ae120b13167, type: 3}
       propertyPath: m_RootOrder
       value: 0

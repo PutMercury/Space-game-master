@@ -44,12 +44,21 @@ public class MacroTurretShooting : MonoBehaviour
     PhotonView view;
     string teamName;
     int teamNo = TeamSelect.teamNo;
+    public Vector3 isAimedCheckValue = RotatingTurrets.isAimedPoint;
 
+    Vector3 targetPoint;
+    bool withinFireLine=false;
+    float aimSpread = 30;
+
+    public Ray rayCastFromCam;
+    RaycastHit hit;
 
 
 
     public void Awake()
     {
+        
+
         view = GetComponent<PhotonView>();
 
         if (PhotonNetwork.IsMasterClient)
@@ -68,6 +77,19 @@ public class MacroTurretShooting : MonoBehaviour
 
     private void Update()
     {
+        rayCastFromCam = shipCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        if (Physics.Raycast(rayCastFromCam, out hit) & !Physics.Raycast(rayCastFromCam, LayerMask.GetMask(teamName)))
+        {
+            Debug.DrawRay(rayCastFromCam.origin, hit.point * 10f, Color.green, 10f);
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = rayCastFromCam.GetPoint(100); //This is just a far away point from the ship
+            Debug.DrawRay(rayCastFromCam.origin, hit.point * 10f, Color.blue, 10f);
+            //Debug.Log(targetPoint);
+        }
 
         MyInput();
 
@@ -84,6 +106,9 @@ public class MacroTurretShooting : MonoBehaviour
 
     private void MyInput()
     {
+        
+
+
         //checks if weapon is full or semi auto
         if (allowButtonHold)
         {
@@ -97,7 +122,7 @@ public class MacroTurretShooting : MonoBehaviour
         }
 
         //Reloading
-        if (bulletsLeft <= 0)
+        if (bulletsLeft <= 0 || Input.GetKeyDown(KeyCode.R))
         {
             Reload();
         }
@@ -119,21 +144,25 @@ public class MacroTurretShooting : MonoBehaviour
         readyToShoot = false;
 
         //to find where to aim turrets using raycast
-        Ray rayCastFromCam = shipCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //Ray rayCastFromCam = shipCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        
+        
         // When using ViewportPointToRay, 0.5 0.5 0 is centre of screen
-        RaycastHit hit;
+        //RaycastHit hit;
 
         //checking that ray hits something
-        Vector3 targetPoint;
+        
 
         if (Physics.Raycast(rayCastFromCam, out hit) &! Physics.Raycast(rayCastFromCam, LayerMask.GetMask(teamName)))
         {
+            Debug.DrawRay(rayCastFromCam.origin, hit.point * 10f, Color.green, 10f);
             targetPoint = hit.point;
         }
 
         else
         {
             targetPoint = rayCastFromCam.GetPoint(100); //This is just a far away point from the ship
+            Debug.DrawRay(rayCastFromCam.origin, hit.point * 10f, Color.blue, 10f);
             //Debug.Log(targetPoint);
         }
 
@@ -171,11 +200,37 @@ public class MacroTurretShooting : MonoBehaviour
 
             //Calculate the new direction with spread
             Vector3 directionWithSpread = directionWithoutSpread + new Vector3(xSpread, ySpread, 0); //just adds the spread onto the initial direction calculation
-            
+
             //Instantiate bullet (create)
+
+            Debug.Log("reaches if");
+            isAimedCheckValue = RotatingTurrets.isAimedPoint;
+
+            Debug.Log(withinFireLine + "before");
+            Debug.Log(targetPoint + "targetPoint");
+            if (Vector3.Distance(targetPoint, isAimedCheckValue) < aimSpread)// - aimSpread) & (targetPoint < isAimedCheckValue + aimSpread))
+            {
+                Debug.Log(isAimedCheckValue + "is aimed");
+
+                withinFireLine = true;
+                Debug.Log(withinFireLine);
+
+            }
+            else
+            {
+                withinFireLine = false;
+                Debug.Log(withinFireLine);
+            }
+
             if (teamNo == 1)
             {
-                currentBullet = PhotonNetwork.Instantiate("BulletP1", shootingBarrel.position, Quaternion.identity); //PhotonNetwork.Instatiate is used for instantiating an object that appears on both screens
+                if (withinFireLine == true)
+                {
+                    Debug.Log("about to shoot");
+                    currentBullet = PhotonNetwork.Instantiate("BulletP1", shootingBarrel.position, Quaternion.identity); //PhotonNetwork.Instatiate is used for instantiating an object that appears on both screens
+                    currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+                }
+                
             }
             else
             {
@@ -183,7 +238,7 @@ public class MacroTurretShooting : MonoBehaviour
             }
 
             //rotating bullet in right direction
-            currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+            
 
             //currentBullet.AddComponent<MacroBulletBehaviour>();
 
