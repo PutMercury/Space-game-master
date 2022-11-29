@@ -41,13 +41,26 @@ public class MacroTurretShooting : MonoBehaviour
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
     private bool continueShoot = true;
-    
+    PhotonView view;
+    string teamName;
+    int teamNo = TeamSelect.teamNo;
 
 
 
 
     public void Awake()
     {
+        view = GetComponent<PhotonView>();
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            teamName = "Player1";
+        }
+        else
+        {
+            teamName = "Player2";
+        }
+
         bulletsLeft = magazineSize;
         readyToShoot = true;
         //LayerMask friendlyHitCheck = LayerMask.GetMask("Player1");
@@ -113,7 +126,7 @@ public class MacroTurretShooting : MonoBehaviour
         //checking that ray hits something
         Vector3 targetPoint;
 
-        if (Physics.Raycast(rayCastFromCam, out hit) &! Physics.Raycast(rayCastFromCam, LayerMask.GetMask("Player1")))
+        if (Physics.Raycast(rayCastFromCam, out hit) &! Physics.Raycast(rayCastFromCam, LayerMask.GetMask(teamName)))
         {
             targetPoint = hit.point;
         }
@@ -146,6 +159,8 @@ public class MacroTurretShooting : MonoBehaviour
 
         if (continueShoot)
         {
+            GameObject currentBullet = null;
+
             //Now calculate direction from attackPoint to targetPoint
             Vector3 directionWithoutSpread = targetPoint - shootingBarrel.position;
             //gameObject.transform.rotation = directionWithoutSpread;
@@ -156,14 +171,22 @@ public class MacroTurretShooting : MonoBehaviour
 
             //Calculate the new direction with spread
             Vector3 directionWithSpread = directionWithoutSpread + new Vector3(xSpread, ySpread, 0); //just adds the spread onto the initial direction calculation
-
+            
             //Instantiate bullet (create)
-            GameObject currentBullet = PhotonNetwork.Instantiate("Bullet", shootingBarrel.position, Quaternion.identity); //PhotonNetwork.Instatiate is used for instantiating an object that appears on both screens
+            if (teamNo == 1)
+            {
+                currentBullet = PhotonNetwork.Instantiate("BulletP1", shootingBarrel.position, Quaternion.identity); //PhotonNetwork.Instatiate is used for instantiating an object that appears on both screens
+            }
+            else
+            {
+                currentBullet = PhotonNetwork.Instantiate("BulletP2", shootingBarrel.position, Quaternion.identity); //PhotonNetwork.Instatiate is used for instantiating an object that appears on both screens
+            }
 
             //rotating bullet in right direction
             currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
 
-            currentBullet.AddComponent<MaxBulletRange>();
+            //currentBullet.AddComponent<MacroBulletBehaviour>();
+
             
 
             //instantiating muzzleflash

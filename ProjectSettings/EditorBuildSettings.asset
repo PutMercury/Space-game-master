@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 4d5fed01da7c5f34ea6f919a9f3b6fbe
   - enabled: 1
+    path: Assets/Scenes/Choose team.unity
+    guid: 117a4c66ab72e77458c01231a26d7c4f
+  - enabled: 1
+    path: Assets/Scenes/HostReadyUp.unity
+    guid: c539cc892c796fa4da9b3f6ec3bb2f37
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 44b2a0635f49c334f88f4730fbf3d5dd
   m_configObjects: {}

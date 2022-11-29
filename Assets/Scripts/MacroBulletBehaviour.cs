@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class MaxBulletRange : MonoBehaviour
+public class MacroBulletBehaviour : MonoBehaviour
 {
     private PhotonView photonBullet;
     private float startTime;
     private float checkTime;
-    [SerializeField] private float maxRange = 3;
-
+    [SerializeField] private float maxRange = 10;
+    
+    public int dmgAmount = 100;
+    
+    public static GameObject ship;
+    
+    
+    
+    
 
 
     // Start is called before the first frame update
@@ -18,7 +25,7 @@ public class MaxBulletRange : MonoBehaviour
         photonBullet = GetComponent<PhotonView>();
         startTime = Time.time;
         checkTime = startTime;
-       
+        dmgAmount = 100;
         
 
         
@@ -27,15 +34,23 @@ public class MaxBulletRange : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        photonBullet = GetComponent<PhotonView>();
         if (photonBullet.IsMine)
         {
             if (Time.time - checkTime >= maxRange)
             {
                 Debug.Log(gameObject.name);
-                PhotonNetwork.Destroy(this.gameObject);
+                PhotonNetwork.Destroy(gameObject);
                 
             }
         }
       
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        photonBullet = GetComponent<PhotonView>();
+        PhotonNetwork.Destroy(gameObject);
+        
+        
     }
 }

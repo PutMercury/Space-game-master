@@ -11,17 +11,17 @@ public abstract class ShipMovement : MonoBehaviour
     public float turnCap;
     public float rollCap;
     public float pitchCap;
-
-    
-    
-
+    int teamNo = TeamSelect.teamNo;
+    float dmg;
+    private Health shipHealth;
     public Rigidbody rb;
 
     PhotonView view;
+    private MacroBulletBehaviour accessBullet;
 
     public void Start()
     {
-        
+        dmg = 100f;
 
         view = GetComponent<PhotonView>();
         
@@ -38,12 +38,40 @@ public abstract class ShipMovement : MonoBehaviour
         pitchCap = 2f;
   
     }
+    [PunRPC]
+    public void reduceHealth( float dmg)
+    {
+        this.gameObject.GetComponent<Health>().TakeDamage(dmg);
+    }
+    [PunRPC]
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision");
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 9)
+        {
+            
+            Debug.Log("got through if");
+            dmg = other.GetComponent<MacroBulletBehaviour>().dmgAmount;
+            shipHealth = gameObject.GetComponent<Health>();
+            
+            view.RPC("reduceHealth", RpcTarget.All, dmg);
+            Debug.Log("Sent RPC");
+            
+            
+        }
+        
 
-
+       
+     
+        
+        
+    }
 
     void Update()
     {
-
+        //Check if bullet is mine
+        //check bullets damage value
+        //subtract from health 
     }
 
 

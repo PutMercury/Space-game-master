@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 4561475101476881343}
   - component: {fileID: -7745381720418168889}
   - component: {fileID: -9212729045360632799}
+  - component: {fileID: 6066441710731937617}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: BulletP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +96,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4561475101476881342}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -172,3 +173,17 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &6066441710731937617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4561475101476881342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02933fccdcd28ea48a3ab4f4bf72b519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRange: 3
+  dmgAmount: 100
