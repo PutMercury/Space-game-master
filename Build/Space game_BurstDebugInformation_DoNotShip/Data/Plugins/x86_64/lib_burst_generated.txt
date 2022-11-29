@@ -102,11 +102,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_MONO
 --compilation-defines=NET_STANDARD_2_0
 --compilation-defines=NET_STANDARD
---compilation-defines=DEVELOPMENT_BUILD
---compilation-defines=ENABLE_PROFILER
---compilation-defines=DEBUG
---compilation-defines=TRACE
---compilation-defines=UNITY_ASSERTIONS
 --compilation-defines=UNITY_PRO_LICENSE
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
@@ -120,15 +115,15 @@ Library: lib_burst_generated
 --compilation-defines=PUN_2_0_OR_NEWER
 --compilation-defines=PUN_2_OR_NEWER
 --compilation-defines=PUN_2_19_OR_NEWER
+--compilation-defines=ENABLE_VR_MODULE
+--compilation-defines=ENABLE_XR_MODULE
+--compilation-defines=CSHARP_7_OR_LATER
+--compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
 --compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=PACKAGE_UITOOLKIT
---compilation-defines=CSHARP_7_OR_LATER
---compilation-defines=CSHARP_7_3_OR_NEWER
---compilation-defines=ENABLE_VR_MODULE
---compilation-defines=ENABLE_XR_MODULE
 --compilation-defines=VISUAL_EFFECT_GRAPH_0_0_1_OR_NEWER
 --compilation-defines=ENABLE_BURST_1_0_0_OR_NEWER
 --compilation-defines=USING_ANIMATION_MODULE
@@ -146,10 +141,9 @@ Library: lib_burst_generated
 --compilation-defines=VFX_HAS_AUDIO
 --linker-options=PdbAltPath="Space game_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
---debug=Full
 --output=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
---root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
+--root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
@@ -287,11 +281,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_MONO
 --compilation-defines=NET_STANDARD_2_0
 --compilation-defines=NET_STANDARD
---compilation-defines=DEVELOPMENT_BUILD
---compilation-defines=ENABLE_PROFILER
---compilation-defines=DEBUG
---compilation-defines=TRACE
---compilation-defines=UNITY_ASSERTIONS
 --compilation-defines=UNITY_PRO_LICENSE
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
@@ -305,15 +294,15 @@ Library: lib_burst_generated
 --compilation-defines=PUN_2_0_OR_NEWER
 --compilation-defines=PUN_2_OR_NEWER
 --compilation-defines=PUN_2_19_OR_NEWER
+--compilation-defines=ENABLE_VR_MODULE
+--compilation-defines=ENABLE_XR_MODULE
+--compilation-defines=CSHARP_7_OR_LATER
+--compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
 --compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=PACKAGE_UITOOLKIT
---compilation-defines=CSHARP_7_OR_LATER
---compilation-defines=CSHARP_7_3_OR_NEWER
---compilation-defines=ENABLE_VR_MODULE
---compilation-defines=ENABLE_XR_MODULE
 --compilation-defines=VISUAL_EFFECT_GRAPH_0_0_1_OR_NEWER
 --compilation-defines=ENABLE_BURST_1_0_0_OR_NEWER
 --compilation-defines=USING_ANIMATION_MODULE
@@ -331,10 +320,9 @@ Library: lib_burst_generated
 --compilation-defines=VFX_HAS_AUDIO
 --linker-options=PdbAltPath="Space game_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
---debug=Full
 --output=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
---root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
+--root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll
 --root-assembly=D:\Unity Projects\Space-game-master\Space-game-master\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
